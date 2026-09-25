@@ -25,6 +25,12 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
+    @Operation(summary = "Get a single product by ID")
+    @GetMapping("/{id}")
+    public ProductEntity getProductById(@PathVariable Long id) {
+        return productService.getProductById(id);
+    }
+
     @Operation(summary = "Add a new product to the catalog")
     @PostMapping
     public ProductEntity createProduct(@RequestBody ProductEntity product) {
